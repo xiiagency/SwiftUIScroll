@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftFoundationExtensions",
+        "repositoryURL": "https://github.com/xiiagency/SwiftFoundationExtensions",
+        "state": {
+          "branch": "main",
+          "revision": "3560bdd3bba85139c1dd280d4609d7bc2b514261",
+          "version": null
+        }
+      },
+      {
+        "package": "SwiftUIExtensions",
+        "repositoryURL": "https://github.com/xiiagency/SwiftUIExtensions",
+        "state": {
+          "branch": "main",
+          "revision": "1bb027c8e0584af8930bb863a566142f8df45ef6",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
