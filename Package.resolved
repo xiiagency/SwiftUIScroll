@@ -5,18 +5,18 @@
         "package": "SwiftFoundationExtensions",
         "repositoryURL": "https://github.com/xiiagency/SwiftFoundationExtensions",
         "state": {
-          "branch": "main",
-          "revision": "3560bdd3bba85139c1dd280d4609d7bc2b514261",
-          "version": null
+          "branch": null,
+          "revision": "7c821dc666239bcf956d5b91a2610db61d8b5fdf",
+          "version": "1.0.0"
         }
       },
       {
         "package": "SwiftUIExtensions",
         "repositoryURL": "https://github.com/xiiagency/SwiftUIExtensions",
         "state": {
-          "branch": "main",
-          "revision": "1bb027c8e0584af8930bb863a566142f8df45ef6",
-          "version": null
+          "branch": null,
+          "revision": "dab6cb7823baa44285ddc9e118e139163abd843b",
+          "version": "1.0.0"
         }
       }
     ]
