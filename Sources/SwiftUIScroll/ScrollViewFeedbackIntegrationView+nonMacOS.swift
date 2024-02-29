@@ -110,26 +110,41 @@ struct ScrollViewFeedbackIntegrationView : UIViewRepresentable {
   }
   
   /**
-   Searches for siblings of the given `UIView` that are of type `UIScrollView`.
+   Searches for siblings & nephews of the given `UIView` that are of type `UIScrollView`.
    If one is found, we attach our coordinator as that `ScrollView`'s `UIScrollViewDelegate`
    in order to receive scrolling feedback.
    */
   private func attachToScrollViewSibling(of uiView: UIView?, using coordinator: Coordinator) {
     // Grab subviews of the view's parent, if the parent is nil, or no subviews exist, abort.
-    guard let subviews = uiView?.superview?.subviews else {
+    guard let siblings = uiView?.superview?.subviews else {
       return
     }
     
-    // Find the first subview that is a UISCrollView.
-    let candidate = subviews.reduce(nil) { (found: UIScrollView?, candidate: UIView) in
-      if let found = found {
-        return found
+    var candidate: UIScrollView? = nil
+    
+    /**
+     NOTE: With the release of iOS 17 a wrapping
+     `SwiftUI HostingScrollView PlatformContainer` was added around UIScrollViews so
+     instead the candidate always being our sibling, we now need to also look at our nephews.
+     */
+    for sibling in siblings {
+      
+      // First check if the sibling is a candidate
+      if let sibling = sibling as? UIScrollView {
+        candidate = sibling
+        break
       }
       
-      return candidate as? UIScrollView
+      // Then check if any of its children is a Scroll View
+      for child in sibling.subviews {
+        if let child = child as? UIScrollView {
+          candidate = child
+          break
+        }
+      }
     }
     
-    // If no UIScrollView sibling is found, abort.
+    // If no UIScrollView sibling or nephew is found, abort.
     guard let scrollView = candidate else {
       return
     }
